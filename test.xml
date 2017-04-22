@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Rectangle-Build" default="main" basedir=".">
+<project name="Rectangle-Test" default="main" basedir=".">
   <property environment="env"/>
 
   <!-- Sets variables which can later be used. -->
@@ -10,7 +10,7 @@
 
   <path id="class.path">
 	  <pathelement location="./lib/junit-4.10.jar" />
-	  <pathelement location="${build.dir}" />
+	  <pathelement location="${build.dir}"/>
   </path>
 
   <!-- Deletes the existing build, docs and dist directory-->
@@ -20,28 +20,23 @@
   </target>
 
   <!-- Creates the  build, docs and dist directory-->
-  <target name="makedir">
+  <target name="makedir" depends="clean">
     <mkdir dir="${build.dir}" />
-    <mkdir dir="${dist.dir}" />
+    <mkdir dir="${report.dir}" />
   </target>
 
   <!-- Compiles the java code (including the usage of library for JUnit -->
-  <target name="compile" depends="clean, makedir">
-    <javac srcdir="${src.dir}" destdir="${build.dir}">
-      <classpath refid="class.path" />
-    </javac>
+  <target name="compile" depends="clean, makedir, compile">
+    <junit printsummary="yes" fork="true">
+	    <classpath refid="class.path" />
+	    <test name="RectangleTest" todir="${report.dir}" outfile="result">
+	    	<formatter type="xml" />
+	    </test>
+    </junit>
   </target>
 
-  <!--Creates the deployable jar file  -->
-  <target name="jar" depends="compile">
-    <jar destfile="${dist.dir}\rectangle.jar" basedir="${build.dir}">
-      <manifest>
-        <attribute name="Main-Class" value="Rectangulator" />
-      </manifest>
-    </jar>
-  </target>
 
-  <target name="main" depends="compile, jar">
+  <target name="main" depends="test">
     <description>Main target</description>
   </target>
   
