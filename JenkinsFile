@@ -59,6 +59,12 @@ pipeline{
 			}
 		}
 		
+		stage("promote to green"){
+			steps{
+				sh "cp /var/www/html/rectangles/all/rectangle_${BUILD_NUMBER}.jar cp /var/www/html/rectangles/green/rectangle_${BUILD_NUMBER}.jar"
+			}
+		}
+		
 	}
 	
 	
