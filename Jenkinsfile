@@ -72,9 +72,9 @@ pipeline{
 			}
 		}
 		
-	}
+	
 
-stage('Promote develop branch to master'){
+	stage('Promote develop branch to master'){
 	agent {
 		label 'apache'
 	}
@@ -98,4 +98,4 @@ stage('Promote develop branch to master'){
 }
 	
 	
-}
+}}
