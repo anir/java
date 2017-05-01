@@ -106,7 +106,7 @@ pipeline{
 
 	post {
         	success {
-                	emailexxt(
+                	emailext(
                         	subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!!",                      
                         	body: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!! Please look at the failure!!",
                         	to: "anirban25987@gmail.com"
@@ -120,7 +120,7 @@ pipeline{
    }
 	post {
 	        failure {
-		     emailexxt(
+		     emailext(
 			subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!!",			body: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!! Please look at the failure!!", 
 			to: "anirban25987@gmail.com" 
 		     )
