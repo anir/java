@@ -112,25 +112,24 @@ pipeline{
 
 	post {
         	success {
-                	emailexxt(
-                        	subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!!",                      body: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!! Please look at the failure!!",
+                	emailext(
+                        	subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!!",                      
+                        	body: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!! Please look at the failure!!",
                         	to: "anirban25987@gmail.com"
                 	)
         	}
 	}
 
 
-}
-
-post {
-	failure {
-		emailexxt(
+    }
+	
+   }
+	post {
+	        failure {
+		     emailext(
 			subject: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!!",			body: "${env.JOB_NAME} [${env.BUILD_NUMBER}] Failed!! Please look at the failure!!", 
 			to: "anirban25987@gmail.com" 
-		)
-	}
-}
-	
-	
+		     )
+	     }
 }
 }
