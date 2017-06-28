@@ -1,4 +1,4 @@
-@Library('jenkins-global-library')
+@Library('codemonkeyLib')
 import java.net.URL
 import se.codemonkey.scm.git
 
