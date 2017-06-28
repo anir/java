@@ -1,7 +1,6 @@
-
 @Library('jenkins-global-library')
 import java.net.URL
-import linuxacademy.git
+import se.codemonkey.scm.git
 
 pipeline{
 	agent none
@@ -15,6 +14,13 @@ pipeline{
 	}
 	
 	stages {
+		
+		stage("test groovy import") {
+			agent any
+			def branch
+    			def git = new se.codemonkey.scm.Git(this)
+    			git.checkout()
+		}
 		stage("Say Hello"){
 			agent any
 			steps{
