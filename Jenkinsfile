@@ -1,4 +1,8 @@
-@Library('sayHello')
+#!/usr/bin/env groovy
+
+import java.net.URL
+import linuxacademy.git
+
 pipeline{
 	agent none
 	
