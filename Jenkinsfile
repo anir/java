@@ -1,5 +1,6 @@
-@Library('codemonkeyLib')
+@Library('jenkins-global-library')
 import java.net.URL
+import linuxacademy.*
 import se.codemonkey.scm.git
 
 pipeline{
