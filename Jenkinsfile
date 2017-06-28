@@ -1,5 +1,5 @@
-#!/usr/bin/env groovy
 
+@Library('jenkins-global-library')
 import java.net.URL
 import linuxacademy.git
 
