@@ -18,8 +18,9 @@ pipeline{
 		stage("Say Hello"){
 			agent any
 			steps{
-				def speak = new linuxacademy.git.SayHello(this)
-				speak.say_something()
+				def branch
+    				def git = new linuxacademy.git.SayHello(this)
+    				git.checkout()
 			}
 		}
 		stage ('unit tests'){
