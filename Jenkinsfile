@@ -18,7 +18,7 @@ pipeline{
 		stage("Say Hello"){
 			agent any
 			steps{
-				def speak = new SayHello()
+				def speak = new linuxacademy.git.SayHello()
 				speak.say_something()
 			}
 		}
