@@ -18,7 +18,8 @@ pipeline{
 		stage("Say Hello"){
 			agent any
 			steps{
-				sayHello 'Awesome student!!'
+				def speak = new SayHello()
+				speak.say_something()
 			}
 		}
 		stage ('unit tests'){
