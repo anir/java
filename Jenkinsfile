@@ -15,12 +15,6 @@ pipeline{
 	
 	stages {
 		
-		stage("test groovy import") {
-			agent any
-			def branch
-    			def git = new se.codemonkey.scm.Git(this)
-    			git.checkout()
-		}
 		stage("Say Hello"){
 			agent any
 			steps{
