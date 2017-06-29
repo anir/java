@@ -1,4 +1,4 @@
-@Library('jenkins-global-library')
+@Library('jenkins-global-library')_
 import java.net.URL
 import linuxacademy.*
 import se.codemonkey.scm.git
